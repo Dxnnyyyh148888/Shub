@@ -1,0 +1,131 @@
+local k = Instance.new("ScreenGui")
+k.Parent = game.Players.LocalPlayer.PlayerGui
+
+local m = Instance.new("Frame")
+m.Parent = k
+m.Size = UDim2.new(0.2, 0, 0.5)
+m.Position = UDim2.new(0.7, 0, 0.25)
+m.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+m.BorderSizePixel = 0
+m.Active = true
+m.Draggable = true
+
+local j = Instance.new("TextLabel")
+j.Parent = m
+j.Size = UDim2.new(1, 0, 0.07)
+j.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+j.BorderSizePixel = 0
+j.Text = "Synapse X - Script Hub"
+j.TextScaled = true
+j.Font = Enum.Font.SourceSans
+j.TextColor3 = Color3.new(1, 1, 1)
+
+local l = Instance.new("Frame")
+l.Parent = m
+l.Size = UDim2.new(0.3, 0, 0.87)
+l.Position = UDim2.new(0.025, 0, 0.1)
+l.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+l.BorderSizePixel = 0
+
+local buttons = {}
+
+for i = 1, 6 do
+    local button = Instance.new("TextButton")
+    button.Parent = l
+    button.Size = UDim2.new(0.9, 0, 0.07)
+    button.Position = UDim2.new(0.05, 0, 0. + (i - 1) * 0.07)
+    button.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+    button.BorderSizePixel = 0
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.Font = Enum.Font.SourceSans
+    button.TextScaled = true
+    button.BackgroundTransparency = 1
+    button.TextXAlignment = Enum.TextXAlignment.Left
+    buttons[i] = button
+end
+buttons[1].Text = "DarkDex"
+buttons[2].Text = "RemoteSpy"
+buttons[3].Text = "Gui Maker"
+buttons[4].Text = "Adv. Executor"
+buttons[5].Text = "HD Fly"
+buttons[6].Text = "NA Admin"
+
+local b = Instance.new("TextLabel")
+b.Parent = m
+b.Size = UDim2.new(0.625, 0, 0.25)
+b.Position = UDim2.new(0.35, 0, 0.6)
+b.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+b.Text = "More Executors / Executor mods in T.me/Dxnnylolㅤㅤ ㅤ ㅤ ㅤ ㅤ"
+b.TextScaled = true
+b.Font = Enum.Font.SourceSans
+b.TextColor3 = Color3.new(1, 1, 1)
+b.BorderSizePixel = 0
+b.TextXAlignment = Enum.TextXAlignment.Left
+b.TextYAlignment = Enum.TextYAlignment.Top
+
+local o = Instance.new("TextButton")
+o.Parent = m
+o.Size = UDim2.new(0.3,0,0.1)
+o.Position = UDim2.new(0.35,0,0.87)
+o.BackgroundColor3 = Color3.fromRGB(54,54,54)
+o.BorderSizePixel = 0
+o.Text = " Execute "
+o.TextScaled = true
+o.Font = Enum.Font.SourceSans
+o.TextColor3 = Color3.new(1,1,1)
+
+local e = Instance.new("TextButton")
+e.Parent = m
+e.Size = UDim2.new(0.3,0,0.1)
+e.Position = UDim2.new(0.67,0,0.87)
+e.Text = "Close"
+e.Font = Enum.Font.SourceSans
+e.TextColor3 = Color3.new(1,1,1)
+e.BorderSizePixel = 0
+e.BackgroundColor3 = Color3.fromRGB(54,54,54)
+e.TextScaled = true
+e.MouseButton1Click:Connect(function()
+    k:Destroy()
+end)
+
+local selectedScript = nil
+
+buttons[1].MouseButton1Click:Connect(function()
+    b.Text = "Explorer that active API on Cryptic, Edit every part with him!"
+    selectedScript = "DarkDex"
+end)
+buttons[2].MouseButton1Click:Connect(function()
+    b.Text = "Enables to see whats happening with game"
+    selectedScript = "RemoteSpy"
+end)
+buttons[3].MouseButton1Click:Connect(function()
+b.Text = "Making Gui will be easier with him. by YT:GhostPlayer"
+selectedScript = "GuiMaker"
+end)
+buttons[6].MouseButton1Click:Connect(function()
+b.Text = "Better Admin Commands with 300+ commands"
+selectedScript = "NA"
+end)
+buttons[5].MouseButton1Click:Connect(function()
+b.Text = "my re-make of HD Admin's Fly Gui"
+selectedScript= "HDFLY"
+end)
+buttons[4].MouseButton1Click:Connect(function()
+b.Text = "My Executor with more options"
+selectedScript = "AE"
+end)
+o.MouseButton1Click:Connect(function()
+    if selectedScript == "DarkDex" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Artifacttx/YumeHub/refs/heads/main/Universal/DarkDex_Mobile", true))()
+    elseif selectedScript == "RemoteSpy" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua'))()
+    elseif selectedScript == "GuiMaker" then
+        loadstring(game:HttpGet('https://pastefy.app/S7xNJSXX/raw'))()execute("Script8")
+    elseif selectedScript == "NA" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))();
+    elseif selectedScript == "AE" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dxnnyyyh148888/ThatOneGirl-Executor/refs/heads/main/SourceCode"))()
+    elseif selectedScript == "HDFLY" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dxnnyyyh148888/Fly-gui/refs/heads/main/Hhhhh"))()
+    end
+end)
